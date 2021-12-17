@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #c7bcba;
+    font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu
+}
+
+#img1 {
+    width: 100%;
+    overflow: hidden;
+    opacity: 0.8;
+}
+
+body {
+    background: #201f1b;
+    /*background: url("") no-repeat;*/
+    background-size:cover;
+    overflow: hidden;
+}
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.nav {
+    width: 80%;
+    height: 50px;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    animation: anim4 2s forwards 3s;
+}
+
+@keyframes anim4 {
+    from{
+        top: -50px;
+    }
+    to {
+        top: 40px;
+    }
+}
+
+.menu ul li {
+    list-style: none;
+    display: inline-block;
+    padding-left: 50px;
+}
+
+li:hover {color:#d67208;font-size:20px;cursor:pointer}
+li:active {color:#ffff00;font-size:21px;cursor:pointer}
+
+.con {
+    width: 80%;
+    margin: auto;
+    padding-top: 120px;
+    position: absolute;
+    left: -100%;
+    animation: anim3 2s forwards 3s;
+}
+@keyframes anim3 {
+    from{
+        left: -100%;
+    }
+    to {
+        left: 10%;
+    }
+}
+
+.con h1{
+    width: 50%;
+    font-size: 120px;
+    color: #d67208;
+}
+
+.line {
+    width: 720px;
+    height: 2px;
+    background: #c7bcba;
+    margin: 20px 0;
+}
+
+.con p {
+    width: 48%;
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: 200;
+}
+
+.con a{
+    width: 270px;
+    height: 60px;
+    display: block;
+    margin-top: 40px;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: 200;
+    text-align: center;
+    line-height: 60px;
+    background: #d67208;
+    border-radius: 5px;
+}
+
+.OS {
+    width: 691px;
+    height: 810px;
+    background: url("../img/niuniu.jpg");
+    opacity: 0.6;
+    border-radius: 20px;
+    background-size: cover;
+    position: absolute;
+    bottom: -100%;
+    left: 30%;
+    animation: anim 2s forwards,anim2 3s forwards 3s;
+}
+.OS:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 691px;
+    height: 810px;
+    background: url("../img/niuniu.jpg");
+    border-radius: 20px;
+    background-size: cover;
+    z-index: -1;
+}
+
+@keyframes anim {
+    from {
+        bottom: -100%;
+    }
+    to {
+        bottom: 0%;
+    }
+}
+
+@keyframes anim2 {
+    from {
+        left: 30%;
+        width: 691px;
+    }
+    to {
+        width: 0px;
+        left: 50%;
+    }
+}
+

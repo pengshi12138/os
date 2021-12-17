@@ -1,0 +1,18 @@
+.data0.chart-pie { -fx-pie-color: #ff9933; }
+.data1.chart-pie { -fx-pie-color: #2acef8; }
+
+.chart-pie-label-line {
+    -fx-stroke: #8b4513;
+    -fx-fill: #8b4513;
+}
+
+.chart-pie-label {
+    -fx-fill: #8b4513;
+    -fx-font-size: 1em;
+}
+
+.label{
+    -fx-font-size: 15pt;
+    -fx-text-fill:grey;
+    -fx-padding:20 10 10 10;
+}

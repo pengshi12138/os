@@ -1,0 +1,273 @@
+/* 公用样式 */
+*{margin:0; padding:0;color:#555; font-size:12px; font-family:"microsoft yahei"; line-height:1;font-weight: normal;letter-spacing: 0.3px;list-style:none;}
+
+body {
+  background: #030f23;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+body.lightsOn {
+  background: #efeddf;
+}
+body.lightsOn .animal-wrapper .eye-wrapper .eye .pupil {
+  width: 57px;
+  height: 75px;
+}
+body.lightsOn .switch-wrapper {
+  top: -20px;
+}
+body.lightsOn .switch-wrapper .string {
+  background: #ff6347;
+}
+body.lightsOn .switch-wrapper .knot,
+body.lightsOn .switch-wrapper .tassel {
+  background: #ffc32d;
+}
+body.lightsOn .switch-wrapper .gap {
+  background: #efeddf;
+}
+
+.round, .animal-wrapper .eye-wrapper .eye, .animal-wrapper .eye-wrapper .eye .pupil, .switch-wrapper .knot,
+.switch-wrapper .tassel {
+  border-radius: 50%;
+  transform-origin: 50%;
+}
+
+.center, .animal-wrapper .eye-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.swing {
+  animation: swing 1s 1;
+}
+
+.hide {
+  display: none;
+}
+
+.animal-wrapper {
+  position: relative;
+  margin-top: 150px;
+}
+.animal-wrapper #animal-body {
+  position: absolute;
+  bottom: -710px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.animal-wrapper .eye-wrapper {
+  top: 195px;
+  display: flex;
+  justify-content: space-between;
+  width: 280px;
+}
+.animal-wrapper .eye-wrapper .eye-inner-wrapper {
+  animation: blink 4s infinite;
+}
+.animal-wrapper .eye-wrapper .eye {
+  position: relative;
+  background: #fff;
+  border: 4px solid #000;
+  width: 85px;
+  height: 85px;
+}
+.animal-wrapper .eye-wrapper .eye .pupil {
+  background: #000;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  bottom: 16px;
+  right: 13px;
+}
+
+.switch-wrapper {
+  box-shadow:5px 3px 20px rgba(0,0,0,0.6);
+  position: absolute;
+  top: 0;
+  left: 20%;
+  transition: all 0.2s;
+}
+.switch-wrapper .string {
+  background: #fff;
+  width: 7px;
+  height: 280px;
+}
+.switch-wrapper .knot,
+.switch-wrapper .tassel {
+  cursor: pointer;
+  background: #daa520;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.switch-wrapper .knot {
+  width: 28px;
+  height: 22px;
+  bottom: 71px;
+}
+.switch-wrapper .tassel {
+  width: 105px;
+  height: 75px;
+  bottom: -2px;
+  -webkit-clip-path: polygon(38% 0, 62% 0, 80% 100%, 20% 100%);
+  clip-path: polygon(38% 0, 62% 0, 80% 100%, 20% 100%);
+}
+.switch-wrapper .gap {
+  background: #030f23;
+  width: 20px;
+  height: 20px;
+  -webkit-clip-path: polygon(49% 0, 29% 100%, 56% 100%);
+  clip-path: polygon(49% 0, 29% 100%, 56% 100%);
+  position: absolute;
+  bottom: 0;
+  left: -22px;
+}
+
+@keyframes blink {
+  0%, 100% {
+    transform: scaleY(0.01);
+  }
+  5%, 95% {
+    transform: scaleY(1);
+  }
+}
+@keyframes swing {
+  0%, 100% {
+    transform: rotate(0deg) translate(0);
+  }
+  25% {
+    transform: rotate(-2deg) translateX(10px);
+  }
+  50% {
+    transform: rotate(2deg) translateX(-10px);
+  }
+}
+
+
+body {
+  background: #000;
+}
+
+#process {
+  left: 20%;
+  top: 70%;
+}
+
+#file {
+  left: 20%;
+  top: 50%;
+}
+
+
+a { 
+  text-decoration: none;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  font-size: 24px;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  width: 400px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 50px;
+  z-index: 0;
+}
+a::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  right: -5px;
+  top: -5px;
+  bottom: -5px;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border-radius: 50px;
+  filter: blur(20px);
+  z-index: -1;
+}
+a:hover::before {
+  animation: sun 8s infinite;
+}
+a:hover {
+  animation: sun 8s infinite;
+}
+@keyframes sun {
+  100% {
+      background-position: -400% 0;
+  }
+}
+
+
+.explain {
+  display: block;
+  border-radius: 5px;
+  right: 3%;
+  width: 30%;
+  height: 100%;
+  margin: 0;
+  
+  position: absolute;
+  top: -100%;
+  animation: anim3 2s forwards;
+}
+@keyframes anim3 {
+  from{
+      top: -100%;
+  }
+  to {
+      top: 0%;
+  }
+}
+
+.allString {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  flex: 1;
+}
+
+.string {
+  box-shadow:5px 3px 20px rgba(0,0,0,0.6);
+  background: #ff6347;
+  width: 7px;
+  height: 100px;
+}
+
+.block {
+  position: relative;
+  border: 10px #ffc32d solid;
+  border-radius: 10px;
+  background-color: #fce7d5;
+  /*efeccb*/
+  padding: 20px;
+  height: 70%;
+  box-shadow:5px 3px 20px rgba(0,0,0,0.6);
+}
+
+
+
+/* 图片弹窗 */
+.imglistwrap{width: 90%;margin: 5%;}
+.imglisttl{width: 100%;text-align: center;font-size: 30px;color: #7a5656;margin-bottom: 50px;}
+.imglist{ padding: 20px; width: 100%; height: 100%; box-sizing: border-box;box-sizing: border-box; display: flex; flex-flow: column;  display: -webkit-flex;-webkit-flex-wrap: wrap;flex-wrap: wrap;}
+.imglist li{flex: 1; display: flex; border-radius: 10px; width: 100%;margin-right: 2%;margin-bottom: 2%;overflow: hidden;position: relative;cursor: pointer; box-shadow:5px 3px 20px rgba(0,0,0,0.6);}
+.imglist li .imgbox{ width: 100%;overflow: hidden;height: 100%;}
+.imglist li .imgbox img{display: block;width: 100%;transition: all .6s;object-fit: cover;height: 100%;}
+.imglist li:hover .imgbox img{transform: scale(1.1);}
+.imglist li .text{width: 100%;height: 100%;position: absolute;top: 0;left: 0;background-color: rgba(0,0,0,0.3);opacity: 0;transition: all .3s;display: flex;display: -webkit-flex;-webkit-justify-content: center;justify-content: center;-webkit-align-items: center;align-items: center;}
+.imglist li:hover .text{opacity: 1;}
+.imglist li .text i{font-size: 20px;color: #FFFFFF;opacity: 0;transition: all .3s;transform: translateY(-100%);-webkit-transform: translateY(-100%);}
+.imglist li:hover .text i{opacity: 1;transform: none;-webkit-transform: none;}
+
+/* maskweap */
+.maskweap{width: 100%;height: 100%;position: fixed;top: 0;left: 0;background-color: rgba(0,0,0,0.8);display: flex;display: -webkit-flex;-webkit-justify-content: center;justify-content: center;-webkit-align-items: center;align-items: center;display: none;}
+.maskweap .imgshow{width: 100%;box-sizing: border-box;height: 100%;display: flex;display: -webkit-flex;-webkit-align-items: center;align-items: center;-webkit-justify-content: center;justify-content: center;}
+.maskweap .imgshow img{display: block;width:auto;max-width: 70%;box-sizing: border-box;padding: 10px;background-color: #FFFFFF;}

@@ -1,0 +1,39 @@
+.progress-indicator .percentage {
+    -fx-fill:null;
+}
+
+.v-box .pane{
+    -fx-border-style: solid inside;
+}
+.pane {
+    -fx-border-style: solid inside;
+    -fx-end-margin: 1px;
+}
+
+#diskLabel {
+    -fx-background-color: grey;
+}
+
+#diskActiveLabel {
+    -fx-background-color: red;
+}
+
+.filletPane{
+    -fx-background-radius: 10px;
+    -fx-border-color:#95AFA6;
+    -fx-border-width: 5px;
+    -fx-border-radius:10px;
+    -fx-background-color: none;
+}
+
+.root{
+    -fx-background-color: rgba(255, 255, 255, 1);
+    -fx-effect: dropshadow(gaussian, black, 50, 0, 0, 0);
+    -fx-background-insets: 50;
+}
+
+.labelStyle {
+    -fx-border-color:#95AFA6;
+    -fx-border-radius: 4px;
+    -fx-border-width: 2px;
+}

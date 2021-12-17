@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="mainPane" maxHeight="750.0" maxWidth="1337.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1337.0" styleClass="root" stylesheets="@../css/sample.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.niuniukeaiyouhaochi.os.UI.ProcessXMLController">
+   <children>
+      <BorderPane fx:id="root" maxHeight="650.0" maxWidth="1237.0" prefHeight="650.0" prefWidth="1237.0" styleClass="filletPane" stylesheets="@../css/sample.css">
+         <left>
+            <AnchorPane maxHeight="600.0" maxWidth="300.0" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane prefHeight="150.0" prefWidth="300.0" styleClass="labelStyle" stylesheets="@../css/sample.css">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="1.0" maxHeight="26.0" maxWidth="300.0" prefHeight="26.0" prefWidth="295.0" styleClass="labelStyle" stylesheets="@../css/sample.css" text="启动面板" textAlignment="CENTER">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="startButton" layoutX="53.30" layoutY="64.0" mnemonicParsing="false" onAction="#start" prefHeight="30.0" prefWidth="70.0" text="开始">
+                           <styleClass>
+                              <String fx:value="btn-primary" />
+                              <String fx:value="btn" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="stopStart" layoutX="156.6" layoutY="64.0" mnemonicParsing="false" onAction="#stop" prefHeight="30.0" prefWidth="70.0" text="暂停">
+                           <styleClass>
+                              <String fx:value="btn-success" />
+                              <String fx:value="btn" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="600.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="350.0">
+                     <children>
+                        <AnchorPane maxHeight="225.0" maxWidth="300.0" prefHeight="225.0" prefWidth="300.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label alignment="CENTER" maxHeight="25.0" maxWidth="300.0" prefHeight="25.0" prefWidth="300.0" text="进程折线图">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <LineChart fx:id="lineChart" layoutY="50.0" maxHeight="225.0" maxWidth="300.0" minHeight="225.0" minWidth="300.0" prefHeight="225.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                 <xAxis>
+                                    <NumberAxis side="BOTTOM" fx:id="x" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis fx:id="y" side="LEFT" />
+                                 </yAxis>
+                              </LineChart>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane maxHeight="200.0" maxWidth="300.0" prefHeight="200.0" prefWidth="300.0" AnchorPane.topAnchor="150.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="135.0" layoutY="14.0" maxHeight="25.0" maxWidth="300.0" prefHeight="25.0" prefWidth="300.0" text="CPU 状态详情" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane maxHeight="138.0" prefHeight="138.0" prefWidth="300.0" AnchorPane.topAnchor="30.0">
+                           <children>
+                              <ProgressIndicator fx:id="ProcessIndicator" maxHeight="138.0" maxWidth="138.0" prefHeight="138.0" prefWidth="138.0" progress="0.0" stylesheets="@../css/sample.css" AnchorPane.bottomAnchor="-8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="147.0" AnchorPane.topAnchor="8.0">
+                                 <effect>
+                                    <InnerShadow />
+                                 </effect>
+                              </ProgressIndicator>
+                              <Label text="时间片 ： " AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="20.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label text="优先级 ： " AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="45.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label text="设   备 ： " AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="70.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label text="完成度 ： " AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="95.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Circle fill="#f8f8f8" layoutX="77.0" layoutY="69.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.topAnchor="22.0" />
+                              <Label fx:id="priority" text="Label" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="45.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="equipment" text="Label" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="70.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="completion" text="Label" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="95.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <ProgressBar fx:id="timeClip" layoutX="210.0" layoutY="20.0" prefHeight="18.0" prefWidth="80.0" progress="0.0" />
+                              <Label fx:id="processPercentage" alignment="CENTER" contentDisplay="CENTER" layoutX="37.0" layoutY="25.0" prefHeight="88.0" prefWidth="80.0" text="#hang">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="20.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="600.0" text="内存块分布情况" AnchorPane.topAnchor="2.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane fx:id="ProcessBlock" prefHeight="275.0" prefWidth="547.0" AnchorPane.leftAnchor="26.5" AnchorPane.topAnchor="30.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="20.0">
+                     <children>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="90.0" prefWidth="600.0" AnchorPane.topAnchor="330.0">
+                           <children>
+                              <HBox layoutX="216.0" layoutY="17.0" prefHeight="60.0" prefWidth="300.0" spacing="8.0" styleClass="v-box" stylesheets="@../css/sample.css">
+                                 <children>
+                                    <Pane fx:id="Interrupter1" prefHeight="100.0" prefWidth="200.0" styleClass="pane">
+                                       <children>
+                                          <Label fx:id="InterrupterLabel1" alignment="CENTER" contentDisplay="CENTER" layoutY="23.0" prefHeight="15.0" prefWidth="52.0" textAlignment="CENTER" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="Interrupter2" prefHeight="200.0" prefWidth="200.0" styleClass="pane">
+                                       <children>
+                                          <Label fx:id="InterrupterLabel2" alignment="CENTER" contentDisplay="CENTER" layoutY="23.0" prefHeight="15.0" prefWidth="52.0" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="Interrupter3" prefHeight="200.0" prefWidth="200.0" styleClass="pane">
+                                       <children>
+                                          <Label fx:id="InterrupterLabel3" alignment="CENTER" layoutY="23.0" prefHeight="15.0" prefWidth="54.0" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="Interrupter4" prefHeight="200.0" prefWidth="200.0" styleClass="pane">
+                                       <children>
+                                          <Label fx:id="InterrupterLabel4" alignment="CENTER" layoutX="-1.0" layoutY="23.0" prefHeight="15.0" prefWidth="56.0" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="Interrupter5" prefHeight="200.0" prefWidth="200.0" styleClass="pane">
+                                       <children>
+                                          <Label fx:id="InterrupterLabel5" alignment="CENTER" layoutY="23.0" prefHeight="15.0" prefWidth="53.0" />
+                                       </children>
+                                    </Pane>
+                                 </children>
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                              </HBox>
+                              <Label layoutX="82.0" layoutY="35.0" text="中 断 队 列">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="90.0" maxWidth="600.0" minHeight="0.0" minWidth="0.0" prefHeight="90.0" prefWidth="600.0" AnchorPane.topAnchor="420.0">
+                           <children>
+                              <HBox layoutX="216.0" layoutY="17.0" prefHeight="60.0" prefWidth="300.0" spacing="8.0" styleClass="v-box" stylesheets="@../css/sample.css">
+                                 <children>
+                                    <Pane fx:id="Ready1" prefHeight="100.0" prefWidth="200.0" styleClass="pane">
+                                       <children>
+                                          <Label fx:id="ReadyLabel1" alignment="CENTER" layoutX="1.0" layoutY="23.0" prefHeight="15.0" prefWidth="50.0" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="Ready2" prefHeight="200.0" prefWidth="200.0" styleClass="pane">
+                                       <children>
+                                          <Label fx:id="ReadyLabel2" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="23.0" prefWidth="50.0" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="Ready3" prefHeight="200.0" prefWidth="200.0" styleClass="pane">
+                                       <children>
+                                          <Label fx:id="ReadyLabel3" alignment="CENTER" layoutX="2.0" layoutY="23.0" prefWidth="50.0" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="Ready4" prefHeight="200.0" prefWidth="200.0" styleClass="pane">
+                                       <children>
+                                          <Label fx:id="ReadyLabel4" alignment="CENTER" layoutX="2.0" layoutY="23.0" prefWidth="50.0" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="Ready5" prefHeight="200.0" prefWidth="200.0" styleClass="pane">
+                                       <children>
+                                          <Label fx:id="ReadyLabel5" alignment="CENTER" layoutX="2.0" layoutY="23.0" prefWidth="50.0" />
+                                       </children>
+                                    </Pane>
+                                 </children>
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                              </HBox>
+                              <Label layoutX="82.0" layoutY="35.0" text="就 绪 队 列" AnchorPane.topAnchor="35.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="90.0" maxWidth="600.0" minHeight="0.0" minWidth="0.0" prefHeight="90.0" prefWidth="600.0" AnchorPane.topAnchor="510.0">
+                           <children>
+                              <HBox layoutX="216.0" layoutY="17.0" prefHeight="60.0" prefWidth="300.0" spacing="8.0" styleClass="v-box" stylesheets="@../css/sample.css">
+                                 <children>
+                                    <Pane fx:id="Blocked1" prefHeight="100.0" prefWidth="200.0" styleClass="pane">
+                                       <children>
+                                          <Label fx:id="BlockedLabel1" alignment="CENTER" layoutX="2.0" layoutY="23.0" prefWidth="50.0" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="Blocked2" prefHeight="200.0" prefWidth="200.0" styleClass="pane">
+                                       <children>
+                                          <Label fx:id="BlockedLabel2" alignment="CENTER" layoutX="2.0" layoutY="23.0" prefWidth="50.0" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="Blocked3" prefHeight="200.0" prefWidth="200.0" styleClass="pane">
+                                       <children>
+                                          <Label fx:id="BlockedLabel3" alignment="CENTER" layoutX="2.0" layoutY="23.0" prefWidth="50.0" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="Blocked4" prefHeight="200.0" prefWidth="200.0" styleClass="pane">
+                                       <children>
+                                          <Label fx:id="BlockedLabel4" alignment="CENTER" layoutX="2.0" layoutY="23.0" prefWidth="50.0" />
+                                       </children>
+                                    </Pane>
+                                    <Pane fx:id="Blocked5" prefHeight="200.0" prefWidth="200.0" styleClass="pane">
+                                       <children>
+                                          <Label fx:id="BlockedLabel5" alignment="CENTER" layoutX="2.0" layoutY="23.0" prefWidth="50.0" />
+                                       </children>
+                                    </Pane>
+                                 </children>
+                                 <effect>
+                                    <Lighting>
+                                       <bumpInput>
+                                          <Shadow />
+                                       </bumpInput>
+                                       <light>
+                                          <Light.Distant />
+                                       </light>
+                                    </Lighting>
+                                 </effect>
+                              </HBox>
+                              <Label layoutX="82.0" layoutY="35.0" text="阻 塞 队 列">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <Label alignment="CENTER" layoutX="285.0" layoutY="315.0" prefHeight="25.0" prefWidth="600.0" text="进程队列情况" AnchorPane.leftAnchor="0.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </center>
+         <right>
+            <AnchorPane prefHeight="200.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane layoutY="100.0" prefHeight="500.0" prefWidth="300.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="300.0" text="设备应用情况">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane prefHeight="50.0" prefWidth="100.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="50.0">
+                           <children>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/shinei_chuangtougui01.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="43.0" layoutY="18.0" text="设备A" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="50.0" prefWidth="100.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="140.0">
+                           <children>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/shinei_chuangtougui01.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="43.0" layoutY="18.0" text="设备A" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="50.0" prefWidth="100.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="230.0">
+                           <children>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/shinei_matong01.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="43.0" layoutY="18.0" text="设备B" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="30.0" layoutY="316.0" prefHeight="50.0" prefWidth="100.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="316.0">
+                           <children>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/shinei_matong01.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="43.0" layoutY="18.0" text="设备B" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="50.0" prefWidth="100.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="400.0">
+                           <children>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/shinei_diaodeng01.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="43.0" layoutY="18.0" text="设备C" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="120.0" prefHeight="500.0" prefWidth="180.0">
+                           <children>
+                              <AnchorPane fx:id="DA1" layoutY="35.0" prefHeight="75.0" prefWidth="180.0">
+                                 <children>
+                                    <ImageView fitHeight="75.0" fitWidth="180.0" layoutX="53.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/device.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="DB2" layoutY="300.0" prefHeight="75.0" prefWidth="180.0">
+                                 <children>
+                                    <ImageView fitHeight="75.0" fitWidth="180.0" layoutX="53.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/device.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="DB1" layoutY="216.0" prefHeight="75.0" prefWidth="180.0">
+                                 <children>
+                                    <ImageView fitHeight="75.0" fitWidth="180.0" layoutX="53.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/device.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="DA2" layoutY="127.0" prefHeight="75.0" prefWidth="180.0">
+                                 <children>
+                                    <ImageView fitHeight="75.0" fitWidth="180.0" layoutX="53.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/device.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="DeviceCUsed" layoutY="383.0" prefHeight="75.0" prefWidth="180.0" visible="false">
+                                 <children>
+                                    <ImageView fitHeight="103.0" fitWidth="136.0" layoutX="23.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/device1.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="DeviceCProcess" alignment="CENTER" layoutX="59.0" layoutY="20.0" prefHeight="15.0" prefWidth="36.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="DeviceBUsed2" layoutY="291.0" prefHeight="75.0" prefWidth="180.0" visible="false">
+                                 <children>
+                                    <ImageView fitHeight="103.0" fitWidth="136.0" layoutX="23.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/device1.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="DeviceBProcess2" alignment="CENTER" layoutX="59.0" layoutY="20.0" prefHeight="15.0" prefWidth="36.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="DeviceBUsed1" layoutY="199.0" prefHeight="75.0" prefWidth="180.0" visible="false">
+                                 <children>
+                                    <ImageView fitHeight="103.0" fitWidth="136.0" layoutX="23.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/device1.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="DeviceBProcess1" alignment="CENTER" layoutX="59.0" layoutY="20.0" prefHeight="15.0" prefWidth="36.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="DeviceAUsed2" layoutY="106.0" prefHeight="75.0" prefWidth="180.0" visible="false">
+                                 <children>
+                                    <ImageView fitHeight="103.0" fitWidth="136.0" layoutX="23.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/device1.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="DeviceAProcess2" alignment="CENTER" layoutX="59.0" layoutY="20.0" prefHeight="15.0" prefWidth="36.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="DeviceAUsed1" layoutY="14.0" prefHeight="75.0" prefWidth="180.0" visible="false">
+                                 <children>
+                                    <ImageView fitHeight="103.0" fitWidth="136.0" layoutX="23.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/device1.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="DeviceAProcess1" alignment="CENTER" layoutX="59.0" layoutY="20.0" prefHeight="15.0" prefWidth="36.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="DC" layoutY="383.0" prefHeight="75.0" prefWidth="180.0">
+                                 <children>
+                                    <ImageView fitHeight="75.0" fitWidth="180.0" layoutX="53.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/device.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="100.0" prefWidth="300.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="300.0" text="内存块压缩">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="116.0" layoutY="50.0" mnemonicParsing="false" onAction="#compress" text="压   缩">
+                           <styleClass>
+                              <String fx:value="btn-info" />
+                              <String fx:value="btn" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </right>
+         <top>
+            <AnchorPane prefHeight="50.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane fx:id="top" prefHeight="50.0" prefWidth="1237.0">
+                     <children>
+                        <ImageView fx:id="backIcon" fitHeight="25.0" fitWidth="25.0" layoutX="26.0" layoutY="13.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/back.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="outIcon" fitHeight="30.0" fitWidth="30.0" layoutX="1193.0" layoutY="10.0" onMouseClicked="#out" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/cancel.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </top>
+      </BorderPane>
+   </children>
+</StackPane>

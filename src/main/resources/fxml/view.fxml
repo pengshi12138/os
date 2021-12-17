@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane maxHeight="870.0" maxWidth="1130.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="870.0" prefWidth="1130.0" stylesheets="@../css/sample.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.niuniukeaiyouhaochi.os.UI.FileXMLController">
+   <children>
+      <AnchorPane maxHeight="777.0" maxWidth="1040.0" prefHeight="777.0" prefWidth="1036.0" styleClass="filletPane" stylesheets="@../css/sample.css">
+         <children>
+            <AnchorPane fx:id="rootPane" maxHeight="700.0" maxWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" styleClass="rootPane" stylesheets="@../css/else.css" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="50.0">
+               <children>
+                  <TreeView fx:id="treeView" prefHeight="468.0" prefWidth="206.0" AnchorPane.rightAnchor="796.0" />
+                  <TableView fx:id="fatTable" layoutX="782.0" prefHeight="468.0" prefWidth="220.0">
+                     <columns>
+                        <TableColumn fx:id="num" prefWidth="100.0" text="盘块号" />
+                        <TableColumn fx:id="index" prefWidth="100.0" text="值" />
+                     </columns>
+                  </TableView>
+                  <TableView fx:id="fileTable" layoutX="205.0" layoutY="468.0" prefHeight="240.0" prefWidth="575.0">
+                     <columns>
+                        <TableColumn fx:id="fileName" prefWidth="145.0" text="文件名称" />
+                        <TableColumn fx:id="fileStyle" prefWidth="145.0" text="文件属性" />
+                        <TableColumn fx:id="startNum" prefWidth="145.0" text="起始盘块" />
+                        <TableColumn fx:id="fileLocation" prefWidth="145.0" text="所在目录" />
+                     </columns>
+                  </TableView>
+                  <PieChart fx:id="pieChart" layoutX="782.0" layoutY="468.0" prefHeight="192.0" prefWidth="220.0" />
+                  <FlowPane fx:id="filePane" layoutX="203.0" layoutY="56.0" prefHeight="413.0" prefWidth="575.0" AnchorPane.leftAnchor="207.0" AnchorPane.rightAnchor="217.0" />
+                  <AnchorPane layoutX="221.0" layoutY="14.0" prefHeight="34.0" prefWidth="535.0" styleClass="searchborder" stylesheets="@../css/else.css">
+                     <children>
+                        <ImageView fitHeight="28.0" fitWidth="30.0" layoutX="20.0" layoutY="7.0" onMouseClicked="#searchFile" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="3.0">
+                           <image>
+                              <Image url="@../img/search.png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="searchPath" layoutX="55.0" layoutY="7.0" onAction="#searchFile" prefHeight="28.0" prefWidth="495.0" styleClass="searchtextarea" stylesheets="@../css/else.css" text="D:" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="3.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="780.0" layoutY="667.0" prefHeight="36.0" prefWidth="220.0" styleClass="rootPane" stylesheets="@../css/else.css">
+                     <children>
+                        <Label layoutX="14.0" layoutY="11.0" prefHeight="15.0" prefWidth="20.0" text=" " AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
+                        <Label fx:id="pieChartTextSpace" layoutX="56.0" layoutY="11.0" prefHeight="15.0" prefWidth="51.0" text="Label" AnchorPane.leftAnchor="56.0" AnchorPane.topAnchor="10.0" />
+                        <Label fx:id="pieChartTextBusy" layoutX="134.0" layoutY="10.0" prefHeight="15.0" prefWidth="45.0" text="Label" AnchorPane.topAnchor="10.0" />
+                        <Label layoutX="179.0" layoutY="10.0" prefHeight="15.0" prefWidth="20.0" text=" " AnchorPane.topAnchor="10.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="DiskBlockPane" layoutX="1.0" layoutY="471.0" prefHeight="231.0" prefWidth="206.0">
+                     <children>
+                        <Label layoutX="61.0" layoutY="-3.0" prefHeight="34.0" prefWidth="104.0" text="盘块使用详情" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="61.0" AnchorPane.topAnchor="-3.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="top" prefHeight="50.0" prefWidth="1030.0" stylesheets="@../css/sample.css">
+               <children>
+                  <ImageView fx:id="backIcon" fitHeight="25.0" fitWidth="25.0" layoutX="14.0" layoutY="13.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/back.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="outIcon" fitHeight="30.0" fitWidth="30.0" layoutX="986.0" layoutY="10.0" onMouseClicked="#out" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/cancel.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
