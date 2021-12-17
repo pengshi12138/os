@@ -1,7 +1,7 @@
 # DPYos 东爷小组的操作系统
 
-[更多项目地址gitee](https://gitee.com/pengshi12138)
-[更过个人笔记](https://blog.pengdong.top/)
++ [更多项目地址gitee](https://gitee.com/pengshi12138)
++ [更多个人笔记](https://blog.pengdong.top/)
 ### 介绍
 ##### 1. 系统介绍
 具有进程管理，磁盘文件管理的操作系统，用于熟悉操作系统中CPU运行的三种状态，运行、就绪、阻塞。对于文件磁盘管理系统，具有相应的文件读取、写入、删除操作。
